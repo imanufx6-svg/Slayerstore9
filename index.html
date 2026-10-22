@@ -15,24 +15,24 @@
 }
 
 :root{
-    --bg:#05080d;
-    --card:#0b1118;
-    --blue:#2f8fd8;
-    --blue2:#1768a6;
-    --gold:#c99a3b;
-    --gold-light:#f0c76a;
+    --bg:#06111f;
+    --card:#0c1b2b;
+    --blue:#20a7ff;
+    --blue2:#075fbe;
+    --gold:#f2b705;
+    --gold-light:#ffd95a;
     --white:#fff;
     --silver:#b9c2cc;
     --muted:#7f8b98;
     --green:#22c55e;
     --red:#ef4444;
     --yellow:#f5b942;
-    --border:rgba(255,255,255,.08);
+    --border:rgba(56,176,255,.22);
 }
 
 body{
     background:
-    radial-gradient(circle at top,#0c1d2a 0%,#05080d 42%,#030508 100%);
+    radial-gradient(circle at top,#12395b 0%,#06111f 48%,#020812 100%);
     color:#fff;
     min-height:100vh;
 }
@@ -687,6 +687,15 @@ input[type="file"]{
 .catalog-section{display:none}
 .catalog-section.active{display:block}
 
+
+/* Bright electric-blue + gold finish */
+.card{border:1px solid rgba(32,167,255,.26);box-shadow:0 10px 28px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,217,90,.06)}
+.btn-primary{background:linear-gradient(135deg,#19aaff,#0862d4);border:1px solid rgba(255,217,90,.62);box-shadow:0 6px 20px rgba(0,139,255,.24);color:#fff}
+.category-btn.active{border-color:#ffd95a;box-shadow:0 0 0 1px rgba(255,217,90,.2),0 5px 18px rgba(0,139,255,.15)}
+.price{color:#ffda55}
+.rules-toggle{width:100%;margin-top:10px;padding:10px 12px;border:1px solid rgba(255,217,90,.5);border-radius:10px;background:rgba(18,126,211,.13);color:#ffda55;font-weight:800;cursor:pointer}
+.rules-panel{display:none;margin-top:10px;padding:12px;border-radius:10px;border:1px solid rgba(32,167,255,.28);background:rgba(3,18,33,.78);font-size:13px;line-height:1.8;color:#e7f4ff}
+.rules-panel.open{display:block}.rules-panel strong{color:#ffda55}
 </style>
 </head>
 
@@ -759,21 +768,15 @@ input[type="file"]{
 <div class="card product-card">
         <div class="product-top"><div><div class="product-name">GFT $1K Instant Account</div><div class="product-type">Goat Funded Trader</div></div><div class="price">350 <small>ETB</small></div></div>
         <div class="product-bottom"><div class="muted">⚡ Instant Account</div><button class="btn btn-primary" onclick="selectProduct('GFT $1K Instant Account')">Buy Now</button></div>
+    <button type="button" class="rules-toggle" onclick="toggleRules(this)">📋 View Account Rules</button><div class="rules-panel"><strong>GFT $1K Instant — Rules</strong><br>• Max daily loss: 3%<br>• Max total loss: 6%<br>• Minimum withdrawal: $100<br>• Maximum withdrawal: $100<br>• Consistency rule: 15%</div>
     </div>
 <div class="card product-card">
-        <div class="product-top"><div><div class="product-name">Propanium $1K 2-Step Account</div><div class="product-type">Propanium</div></div><div class="price">300 <small>ETB</small></div></div>
-        <div class="product-bottom"><div class="muted">⚡ 2-Step Challenge</div><button class="btn btn-primary" onclick="selectProduct('Propanium $1K 2-Step Account')">Buy Now</button></div>
+        <div class="product-top"><div><div class="product-name">Propanium $1K 1-Step Account</div><div class="product-type">Propanium</div></div><div class="price">300 <small>ETB</small></div></div>
+        <div class="product-bottom"><div class="muted">⚡ 1-Step Challenge</div><button class="btn btn-primary" onclick="selectProduct('Propanium $1K 1-Step Account')">Buy Now</button></div>
+    <button type="button" class="rules-toggle" onclick="toggleRules(this)">📋 View Account Rules</button><div class="rules-panel"><strong>Propanium $1K 1-Step — Rules</strong><br>• Profit share: 100%<br>• Withdrawal: $100<br>• No consistency rule<br>• Profit target: 8%<br>• Max daily loss: 3%<br>• Max total loss: 6%<br>• Stop-loss per trade: 2%</div>
     </div>
 
-
-<div class="card product-card">
-        <div class="product-top"><div><div class="product-name">GFT $2.5K 2-Step Account</div><div class="product-type">Goat Funded Trader</div></div><div class="price">2,300 <small>ETB</small></div></div>
-        <div class="product-bottom"><div class="muted">⚡ 2-Step Challenge</div><button class="btn btn-primary" onclick="selectProduct('GFT $2.5K 2-Step Account')">Buy Now</button></div>
-    </div>
-
-    </div>
-
-    <div class="catalog-section" data-catalog="topup">
+<div class="catalog-section" data-catalog="topup">
     <div class="section-title" style="margin-top:28px">2. Top Up</div>
     <p class="muted" style="margin:0 0 14px">Telegram subscriptions, Stars, and Gemini AI Pro.</p>
     <div class="section-title" style="font-size:15px">TELEGRAM PREMIUM 👇</div>
@@ -862,21 +865,17 @@ input[type="file"]{
 <div class="card product-card">
         <div class="product-top"><div><div class="product-name">GFT $1K Instant Account</div><div class="product-type">Goat Funded Trader</div></div><div class="price">350 <small>ETB</small></div></div>
         <div class="product-bottom"><div class="muted">⚡ Instant Account</div><button class="btn btn-primary full" style="margin-top:18px" onclick="selectProduct('GFT $1K Instant Account')">Buy Now</button></div>
+    <button type="button" class="rules-toggle" onclick="toggleRules(this)">📋 View Account Rules</button><div class="rules-panel"><strong>GFT $1K Instant — Rules</strong><br>• Max daily loss: 3%<br>• Max total loss: 6%<br>• Minimum withdrawal: $100<br>• Maximum withdrawal: $100<br>• Consistency rule: 15%</div>
     </div>
 <div class="card product-card">
-        <div class="product-top"><div><div class="product-name">Propanium $1K 2-Step Account</div><div class="product-type">Propanium</div></div><div class="price">300 <small>ETB</small></div></div>
-        <div class="product-bottom"><div class="muted">⚡ 2-Step Challenge</div><button class="btn btn-primary full" style="margin-top:18px" onclick="selectProduct('Propanium $1K 2-Step Account')">Buy Now</button></div>
-    </div>
-
-
-<div class="card product-card">
-        <div class="product-top"><div><div class="product-name">GFT $2.5K 2-Step Account</div><div class="product-type">Goat Funded Trader</div></div><div class="price">2,300 <small>ETB</small></div></div>
-        <div class="product-bottom"><div class="muted">⚡ 2-Step Challenge</div><button class="btn btn-primary full" style="margin-top:18px" onclick="selectProduct('GFT $2.5K 2-Step Account')">Buy Now</button></div>
+        <div class="product-top"><div><div class="product-name">Propanium $1K 1-Step Account</div><div class="product-type">Propanium</div></div><div class="price">300 <small>ETB</small></div></div>
+        <div class="product-bottom"><div class="muted">⚡ 1-Step Challenge</div><button class="btn btn-primary full" style="margin-top:18px" onclick="selectProduct('Propanium $1K 1-Step Account')">Buy Now</button></div>
+    <button type="button" class="rules-toggle" onclick="toggleRules(this)">📋 View Account Rules</button><div class="rules-panel"><strong>Propanium $1K 1-Step — Rules</strong><br>• Profit share: 100%<br>• Withdrawal: $100<br>• No consistency rule<br>• Profit target: 8%<br>• Max daily loss: 3%<br>• Max total loss: 6%<br>• Stop-loss per trade: 2%</div>
     </div>
 
     </div>
 
-    <div class="catalog-section" data-catalog="topup">
+<div class="catalog-section" data-catalog="topup">
     <div class="section-title" style="margin-top:28px">2. Top Up</div>
     <div class="section-title" style="font-size:15px">TELEGRAM PREMIUM 👇</div>
 <div class="card product-card">
@@ -1099,8 +1098,7 @@ input[type="file"]{
             <select id="proofProduct">
                 <option value="">Select product</option>
                 <option value="GFT $1K Instant Account">GFT $1K Instant Account — 350 ETB</option>
-                <option value="Propanium $1K 2-Step Account">Propanium $1K 2-Step Account — 300 ETB</option>
-                <option value="GFT $2.5K 2-Step Account">GFT $2.5K 2-Step Account — 2,300 ETB</option>
+                <option value="Propanium $1K 1-Step Account">Propanium $1K 1-Step Account — 300 ETB</option>
                 <option value="Telegram Premium 3 Month">Telegram Premium 3 Month — 3,000 ETB</option>
                 <option value="Telegram Premium 6 Month">Telegram Premium 6 Month — 3,800 ETB</option>
                 <option value="Telegram Premium 1 Year">Telegram Premium 1 Year — 6,400 ETB</option>
@@ -1212,6 +1210,11 @@ let paymentTimerInterval = null;
 let orderExpired = false;
 
 
+function toggleRules(button) {
+    const panel = button.nextElementSibling;
+    if (panel) { panel.classList.toggle("open"); button.textContent = panel.classList.contains("open") ? "✖ Hide Account Rules" : "📋 View Account Rules"; }
+}
+
 function showCategory(pageId, category, button) {
     const page = document.getElementById(pageId);
     if (!page) return;
@@ -1254,8 +1257,7 @@ function showPage(id, navButton) {
 function getProductPrice(product) {
     const prices = {
         "GFT $1K Instant Account": 350,
-        "Propanium $1K 2-Step Account": 300,
-                        "GFT $2.5K 2-Step Account": 2300,
+        "Propanium $1K 1-Step Account": 300,
         "Telegram Premium 3 Month": 3000,
         "Telegram Premium 6 Month": 3800,
         "Telegram Premium 1 Year": 6400,
